@@ -1,11 +1,13 @@
-import webpack from 'webpack';
-import WebpackDevServer from 'webpack-dev-server';
-import config from '../webpack.config';
+/* eslint-disable linebreak-style */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable linebreak-style */
+const webpack = require('webpack');
+const WebpackDevServer = require('webpack-dev-server');
+const config = require('../webpack.config');
 
 const server = new WebpackDevServer(webpack(config), {});
 server.listen(9000, 'localhost', (err) => {
   if (err) {
-    console.error(err);
     return;
   }
   if (process.send) {

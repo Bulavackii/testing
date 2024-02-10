@@ -1,7 +1,8 @@
-import puppeteer from 'puppeteer';
+/* eslint-disable linebreak-style */
+import puppetteer from 'puppeteer';
 import { fork } from 'child_process';
 
-jest.setTimeout(60000); 
+jest.setTimeout(30000); // default puppeteer timeout
 
 describe('Credit Card Validator form', () => {
   let browser = null;
@@ -20,10 +21,10 @@ describe('Credit Card Validator form', () => {
       });
     });
 
-    browser = await puppeteer.launch({
-      headless: false, 
+    browser = await puppetteer.launch({
+      headless: false, // show gui
       slowMo: 250,
-      devtools: true, 
+      devtools: true, // show devTools
     });
     page = await browser.newPage();
   });
@@ -41,7 +42,6 @@ describe('Credit Card Validator form', () => {
     await button.click();
     await page.waitForSelector('.input.valid');
   });
-
   test('should add do something', async () => {
     await page.goto(baseUrl);
     const input = await page.$('.input');

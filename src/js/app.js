@@ -1,52 +1,46 @@
-/* eslint-disable linebreak-style */ // Отключение правила проверки стиля для переноса строк
-/* eslint-disable consistent-return */ // Отключение правила проверки на согласование возврата
+/* eslint-disable linebreak-style */
+/* eslint-disable consistent-return */
+import luhnAlgoritm from './validate';
+import cardNumber from './card';
 
-import luhnAlgoritm from "./validate"; // Импорт функции luhnAlgorithm из файла './validate'
-import cardNumber from "./card"; // Импорт функции cardNumber из файла './card'
-
-const card = document.querySelector(".input"); // Выбор элемента с классом 'input' (вероятно, поле ввода номера карты)
-const submit = document.querySelector(".submit"); // Выбор элемента с классом 'submit' (вероятно, кнопка отправки формы)
-const cards = [...document.querySelectorAll(".card")]; // Выбор всех элементов с классом 'card' и преобразование их в массив
+const card = document.querySelector('.input');
+const submit = document.querySelector('.submit');
+const cards = [...document.querySelectorAll('.card')];
 
 function checkCard() {
-  if (card.value === "") {
-    return false; // Если значение поля ввода пустое, завершаем функцию и возвращаем false
+  if (card.value === '') {
+    return false;
   }
-
-  // Удаление класса 'nocard' у всех элементов с классом 'card'
   cards.forEach((el) => {
-    if (el.classList.contains("nocard")) {
-      el.classList.remove("nocard");
+    if (el.className.includes('nocard')) {
+      el.classList.remove('nocard');
     }
   });
-
-  // Проверка номера карты с использованием алгоритма Луна
   if (luhnAlgoritm(card.value)) {
-    // Если номер карты прошел проверку, добавляем класс 'valid' и определяем тип карты, добавляя соответствующий класс другим элементам
-    card.classList.remove("novalid");
-    card.classList.add("valid");
+    card.classList.remove('novalid');
+    card.classList.add('valid');
     const type = cardNumber(card.value);
     cards.forEach((el) => {
-      if (!el.classList.contains(type)) {
-        el.classList.add("nocard");
+      if (!el.className.includes(type)) {
+        el.classList.add('nocard');
       }
     });
   } else {
-    card.classList.remove("valid");
-    card.classList.add("novalid");
+    card.classList.remove('valid');
+    card.classList.add('novalid');
   }
 }
 
-submit.addEventListener("click", (event) => {
+submit.addEventListener('click', (event) => {
   event.preventDefault();
   checkCard();
 });
 
-card.addEventListener("input", () => {
-  if (card.value === "") {
+card.addEventListener('input', () => {
+  if (card.value === '') {
     cards.forEach((el) => {
-      if (el.classList.contains("nocard")) {
-        el.classList.remove("nocard");
+      if (el.className.includes('nocard')) {
+        el.classList.remove('nocard');
       }
     });
   }
