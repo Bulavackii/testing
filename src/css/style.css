@@ -1,0 +1,110 @@
+body {
+    color: #333;
+}
+
+.hidden {
+    display: none;
+}
+.cards {
+    margin: 10px 0;
+    height: 25px;
+    list-style: none;
+    padding-left: 0;
+}
+.card {
+  float: left;
+  width: 40px;
+  height: 32px;
+  background-position: 0 0;
+  text-indent: -9999px;
+  margin-left: 4px;
+  background-size: cover;  
+}
+.nocard {
+    opacity: 0.3;
+}
+.card.visa {
+    background-image: url(/pic/visa.png);
+}
+.card.mir {
+    background-image: url(/pic/Mir.png);
+}
+.card.master {
+    background-image: url(/pic/mastercard.png);
+}
+.card.amex {
+    background-image: url(/pic/amex.png);
+}
+.card.discover {
+    background-image: url(/pic/discover.png);
+}
+.card.jcb {
+    background-image: url(/pic/jcb.png);
+}
+.card.diners_club {
+    background-image: url(/pic/diners-club.png);
+}
+.input {
+    display: inline-block;
+    height: 23px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    border: 1px solid #ced4da;
+}
+
+.contact-list {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    max-width: 500px;;
+}
+
+
+.contact-list-item:first-child, .contact-list-item:last-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.contact-list-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ced4da;
+}
+
+.contact-main {
+    display: flex;
+    align-items: center;
+}
+
+.contact-list-item-img {
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.contact-list-item-name, .contact-list-item-phone, .contact-list-item-action {
+    margin-right: 1rem;
+}
